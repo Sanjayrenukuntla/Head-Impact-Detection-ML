@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Input - Head Impact Detection</title>
+    <style>
+        /* Basic Body Styles */
+        body {
+            background-color: #f4f7f6;
+            color: #343a40;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #007bff;
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: white;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link.active {
+            color: #ffdd57;
+        }
+
+        /* Page Content */
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 650px;
+            margin: auto;
+            margin-top: 60px;
+            margin-bottom:100px;
+        }
+
+        h2 {
+            color: #007bff;
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #495057;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            label, input[type="number"] {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Head Impact Detection</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/input">Input</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="content">
+        <div class="form-container">
+            <h2>Input Data</h2>
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="age.65">Age 65:</label>
+                    <input type="number" id="age.65" name="age.65" required>
+                </div>
+                <div class="mb-3">
+                    <label for="amnesia.before">Amnesia Before Injury (0 or 1):</label>
+                    <input type="number" id="amnesia.before" name="amnesia.before" required>
+                </div>
+                <div class="mb-3">
+                    <label for="basal.skull.fracture">Basal Skull Fracture (0 or 1):</label>
+                    <input type="number" id="basal.skull.fracture" name="basal.skull.fracture" required>
+                </div>
+                <div class="mb-3">
+                    <label for="GCS.decrease">GCS Decrease (0 or 1):</label>
+                    <input type="number" id="GCS.decrease" name="GCS.decrease" required>
+                </div>
+                <div class="mb-3">
+                    <label for="GCS.13">GCS 13 (0 or 1):</label>
+                    <input type="number" id="GCS.13" name="GCS.13" required>
+                </div>
+                <div class="mb-3">
+                    <label for="GCS.15.2hours">GCS 15 (2 hours) (0 or 1):</label>
+                    <input type="number" id="GCS.15.2hours" name="GCS.15.2hours" required>
+                </div>
+                <div class="mb-3">
+                    <label for="loss.of.consciousness">Loss of Consciousness (0 or 1):</label>
+                    <input type="number" id="loss.of.consciousness" name="loss.of.consciousness" required>
+                </div>
+                <div class="mb-3">
+                    <label for="open.skull.fracture">Open Skull Fracture (0 or 1):</label>
+                    <input type="number" id="open.skull.fracture" name="open.skull.fracture" required>
+                </div>
+                <div class="mb-3">
+                    <label for="vomiting">Vomiting (0 or 1):</label>
+                    <input type="number" id="vomiting" name="vomiting" required>
+                </div>
+                <div class="mb-3">
+                    <label for="clinically.important.brain.injury">clinically.important.brain.injury (0 or 1):</label>
+                    <input type="number" id="clinically.important.brain.injury" name="clinically.important.brain.injury" required>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Head Impact Detection. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
